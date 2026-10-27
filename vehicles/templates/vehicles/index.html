@@ -10,7 +10,7 @@
         }
 
         .scrollspy-example {
-            height: 80vh;
+            height: 85vh;
             overflow-y: scroll;
             position: relative;
         }
@@ -28,6 +28,8 @@
             <div class="col-md-3">
                 <div id="dashboard-nav" class="list-group position-sticky top-0">
                     <a class="list-group-item list-group-item-action" href="#frequency-table">Frequency Tables (One-way)</a>
+                    <a class="list-group-item list-group-item-action" href="#total-price-manufacturer">Total Price by Manufacturer</a>
+                    <a class="list-group-item list-group-item-action" href="#cars-above-5000">Cars Above $5,000</a>
                 </div>
             </div>
 
@@ -35,6 +37,8 @@
             <div class="col-md-9">
                 <div class="scrollspy-example" data-bs-spy="scroll" data-bs-target="#dashboard-nav" data-bs-smooth-scroll="true" tabindex="0">
                     <h1 class="text-center text-primary mb-4">Vehicle Machine Learning Dashboard</h1>
+                    
+                    <!-- Section 1: Frequency Table -->
                     <div id="frequency-table" class="card shadow mb-5">
                         <div class="card-header bg-info text-white">
                             Frequency Tables (One-way)
@@ -43,6 +47,27 @@
                             {{ frequency_table|safe }}
                         </div>
                     </div>
+
+                    <!-- Section 2: Total Price by Manufacturer -->
+                    <div id="total-price-manufacturer" class="card shadow mb-5">
+                        <div class="card-header bg-primary text-white">
+                            Total Price by Manufacturer (Groupby)
+                        </div>
+                        <div class="card-body">
+                            {{ total_price_by_manufacturer|safe }}
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Cars Above 5000 -->
+                    <div id="cars-above-5000" class="card shadow mb-5">
+                        <div class="card-header bg-success text-white">
+                            Cars with Selling Price Above $5,000
+                        </div>
+                        <div class="card-body table-responsive" style="max-height: 500px; overflow-y: auto;">
+                            {{ cars_above_5000|safe }}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -51,4 +76,3 @@
 </body>
 
 </html>
-

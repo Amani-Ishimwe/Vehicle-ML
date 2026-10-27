@@ -16,3 +16,43 @@ def frequency_table(df):
     )
     return table_html
 
+def cars_above_5000(df):
+    # Filter cars where selling price is above 5000
+    filtered_df = df[df['selling_price'] > 5000]
+
+    # Convert to HTML
+    table_html = filtered_df.to_html(
+        classes="table table-bordered table-striped table-sm align-middle", 
+        float_format='%.2f',
+        justify='center',
+        index=False
+    )
+    return table_html
+
+def total_price_by_manufacturer(df):
+   
+    total_price = df.groupby('manufacturer')['selling_price'].sum().reset_index()
+    total_price.columns = ['Manufacturer', 'Total Price']
+
+    table_html = total_price.to_html(
+        classes="table table-bordered table-striped table-sm align-middle",
+        float_format='%.2f',
+        justify='center',
+        index=False
+    )
+    return table_html
+
+def total_price_by_manufacturer(df):
+    # Group by manufacturer and calculate total selling price
+    total_price = df.groupby('manufacturer')['selling_price'].sum().reset_index()
+    total_price.columns = ['Manufacturer', 'Total Price']
+
+    # Convert to HTML
+    table_html = total_price.to_html(
+        classes="table table-bordered table-striped table-sm align-middle",
+        float_format='%.2f',
+        justify='center',
+        index=False
+    )
+    return table_html
+
